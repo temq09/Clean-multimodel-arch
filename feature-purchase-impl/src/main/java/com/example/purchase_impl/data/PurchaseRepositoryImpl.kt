@@ -9,7 +9,7 @@ import io.reactivex.functions.Function
 import javax.inject.Inject
 
 @PerFeature
-class PurchaseRepositoryImpl @Inject constructor(private val httpClient: HttpClientApi) : PurchaseRepository {
+internal class PurchaseRepositoryImpl @Inject constructor(private val httpClient: HttpClientApi) : PurchaseRepository {
     override fun makePurchaseInStore(): Single<PurchaseModel> {
         return httpClient.doAnyRequest()
                 .map { o: Any? -> PurchaseModel() }

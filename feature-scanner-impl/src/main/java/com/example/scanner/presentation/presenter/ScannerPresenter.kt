@@ -17,7 +17,7 @@ import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
 @InjectViewState
-class ScannerPresenter @Inject constructor(private val mScannerInteractor: ScannerInteractor,
+internal class ScannerPresenter @Inject constructor(private val mScannerInteractor: ScannerInteractor,
                                            private val mPurchaseInteractor: PurchaseInteractor,
                                            private val mRouter: Router) : MvpPresenter<ScannerMainView>() {
     @SuppressLint("CheckResult")

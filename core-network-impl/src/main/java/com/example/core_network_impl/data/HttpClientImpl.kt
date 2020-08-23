@@ -5,7 +5,7 @@ import io.reactivex.Single
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class HttpClientImpl @Inject constructor() : HttpClientApi {
+internal class HttpClientImpl @Inject constructor() : HttpClientApi {
     override fun doAnyRequest(): Single<Any> {
         return Single.timer(300, TimeUnit.MILLISECONDS)
                 .map { aLong: Long? -> Any() }

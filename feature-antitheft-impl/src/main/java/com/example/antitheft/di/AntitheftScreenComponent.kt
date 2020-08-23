@@ -6,6 +6,6 @@ import dagger.Subcomponent
 
 @Subcomponent
 @PerScreen
-interface AntitheftScreenComponent {
+internal interface AntitheftScreenComponent {
     fun antitheftPresenter(): AntitheftPresenter
 }

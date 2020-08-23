@@ -17,12 +17,12 @@ abstract class ScannerFeatureComponent : ScannerFeatureApi {
         scannerFeatureComponent = null
     }
 
-    abstract fun inject(scannerActivity: ScannerActivity)
-    abstract fun scannerScreenComponent(): ScannerScreenComponent
+    internal abstract fun inject(scannerActivity: ScannerActivity)
+    internal abstract fun scannerScreenComponent(): ScannerScreenComponent
 
     @Component(dependencies = [CoreUtilsApi::class, CoreNetworkApi::class, CoreDbApi::class, PurchaseFeatureApi::class])
     @PerFeature
-    interface ScannerFeatureDependenciesComponent : ScannerFeatureDependencies
+    internal interface ScannerFeatureDependenciesComponent : ScannerFeatureDependencies
 
     companion object {
         @Volatile

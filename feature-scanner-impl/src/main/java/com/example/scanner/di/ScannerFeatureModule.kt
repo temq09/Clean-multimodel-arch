@@ -11,7 +11,7 @@ import dagger.Binds
 import dagger.Module
 
 @Module
-abstract class ScannerFeatureModule {
+internal abstract class ScannerFeatureModule {
     @PerFeature
     @Binds
     abstract fun provideScannerRepository(scannerRepository: ScannerRepositoryImpl): ScannerRepository

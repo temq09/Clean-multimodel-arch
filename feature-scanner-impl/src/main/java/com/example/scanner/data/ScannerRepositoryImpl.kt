@@ -11,7 +11,7 @@ import io.reactivex.functions.Function
 import javax.inject.Inject
 
 @PerFeature
-class ScannerRepositoryImpl @Inject constructor(
+internal class ScannerRepositoryImpl @Inject constructor(
         private val httpClient: HttpClientApi,
         private val dbClient: DbClientApi,
         private val someUtils: SomeUtils

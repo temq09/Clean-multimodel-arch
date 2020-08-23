@@ -1,3 +1,3 @@
 package com.example.scanner.domain.models
 
-class ScannerModel 
+internal class ScannerModel

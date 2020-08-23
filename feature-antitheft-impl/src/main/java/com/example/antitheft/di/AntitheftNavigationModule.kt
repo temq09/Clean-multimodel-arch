@@ -8,7 +8,7 @@ import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
 
 @Module
-class AntitheftNavigationModule {
+internal class AntitheftNavigationModule {
     private val cicerone: Cicerone<Router> = Cicerone.create()
 
     @PerFeature

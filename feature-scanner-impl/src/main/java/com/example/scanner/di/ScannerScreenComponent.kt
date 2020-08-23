@@ -6,6 +6,6 @@ import dagger.Subcomponent
 
 @Subcomponent
 @PerScreen
-interface ScannerScreenComponent {
+internal interface ScannerScreenComponent {
     fun scannerPresenter(): ScannerPresenter
 }

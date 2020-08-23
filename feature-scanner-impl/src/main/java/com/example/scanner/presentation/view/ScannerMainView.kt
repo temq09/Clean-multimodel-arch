@@ -6,7 +6,7 @@ import moxy.viewstate.strategy.StateStrategyType
 import moxy.viewstate.strategy.alias.OneExecution
 
 @OneExecution
-interface ScannerMainView : MvpView {
+internal interface ScannerMainView : MvpView {
     fun showScannerWork()
 
     fun showScannerSuccess()

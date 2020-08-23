@@ -4,7 +4,7 @@ import com.example.antitheft.presentation.view.AntitheftHelpFragment
 import com.example.antitheft.presentation.view.AntitheftMainFragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
-object AntitheftRoutingScreens {
+internal object AntitheftRoutingScreens {
     object ANTITHEFT_MAIN: SupportAppScreen() {
         override fun getFragment() = AntitheftMainFragment()
     }

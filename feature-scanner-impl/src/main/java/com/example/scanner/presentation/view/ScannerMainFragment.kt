@@ -12,7 +12,7 @@ import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 
-class ScannerMainFragment : MvpAppCompatFragment(), ScannerMainView {
+internal class ScannerMainFragment : MvpAppCompatFragment(), ScannerMainView {
     @InjectPresenter
     lateinit var scannerPresenter: ScannerPresenter
     @ProvidePresenter

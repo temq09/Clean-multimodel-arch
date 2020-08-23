@@ -6,7 +6,7 @@ import moxy.viewstate.strategy.StateStrategyType
 import moxy.viewstate.strategy.alias.OneExecution
 
 @OneExecution
-interface AntitheftMainView : MvpView {
+internal interface AntitheftMainView : MvpView {
 
     fun showAtWork()
 

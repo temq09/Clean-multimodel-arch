@@ -11,7 +11,7 @@ import dagger.Binds
 import dagger.Module
 
 @Module
-abstract class AntitheftFeatureModule {
+internal abstract class AntitheftFeatureModule {
     @PerFeature
     @Binds
     abstract fun provideAntitheftRepository(antitheftRepository: AntitheftRepositoryImpl): AntitheftRepository

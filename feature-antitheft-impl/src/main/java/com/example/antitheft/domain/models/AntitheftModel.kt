@@ -1,3 +1,3 @@
 package com.example.antitheft.domain.models
 
-class AntitheftModel 
+internal class AntitheftModel

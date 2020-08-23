@@ -8,7 +8,7 @@ import com.example.feature_antitheft_api.AntitheftStarter
 import javax.inject.Inject
 
 @PerFeature
-class AntitheftStarterImpl @Inject constructor() : AntitheftStarter {
+internal class AntitheftStarterImpl @Inject constructor() : AntitheftStarter {
     override fun start(context: Context) {
         val intent = Intent(context, AntitheftActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

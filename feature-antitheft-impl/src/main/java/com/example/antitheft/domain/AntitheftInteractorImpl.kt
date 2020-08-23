@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @PerFeature
-class AntitheftInteractorImpl @Inject constructor(private val antitheftRepository: AntitheftRepository) : AntitheftInteractor {
+internal class AntitheftInteractorImpl @Inject constructor(private val antitheftRepository: AntitheftRepository) : AntitheftInteractor {
     override fun doAntitheftWork(): Single<AntitheftModel> {
         return antitheftRepository.doAntitheftLowLevelWork()
                 .flatMap { antitheftModel: AntitheftModel -> doSomeLogic(antitheftModel) }

@@ -16,7 +16,7 @@ import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
 @InjectViewState
-class AntitheftPresenter @Inject constructor(private val antitheftInteractor: AntitheftInteractor,
+internal class AntitheftPresenter @Inject constructor(private val antitheftInteractor: AntitheftInteractor,
                                              private val purchaseInteractor: PurchaseInteractor,
                                              private val router: Router) : MvpPresenter<AntitheftMainView>() {
     @SuppressLint("CheckResult")

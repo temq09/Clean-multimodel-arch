@@ -13,12 +13,12 @@ import dagger.Component
 @PerFeature
 abstract class AntitheftFeatureComponent : AntitheftFeatureApi {
 
-    fun resetComponent() {
+    internal fun resetComponent() {
         antitheftFeatureComponent = null
     }
 
-    abstract fun inject(antitheftActivity: AntitheftActivity)
-    abstract fun antitheftScreenComponent(): AntitheftScreenComponent
+    internal abstract fun inject(antitheftActivity: AntitheftActivity)
+    internal abstract fun antitheftScreenComponent(): AntitheftScreenComponent
 
     @Component(dependencies = [CoreUtilsApi::class, CoreNetworkApi::class, CoreDbApi::class, PurchaseFeatureApi::class])
     @PerFeature

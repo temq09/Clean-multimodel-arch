@@ -9,7 +9,7 @@ import dagger.Binds
 import dagger.Module
 
 @Module
-abstract class PurchaseModule {
+internal abstract class PurchaseModule {
     @PerFeature
     @Binds
     abstract fun providePurchaseRepository(purchaseRepository: PurchaseRepositoryImpl): PurchaseRepository

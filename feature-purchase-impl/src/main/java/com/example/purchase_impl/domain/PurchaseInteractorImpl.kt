@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @PerFeature
-class PurchaseInteractorImpl @Inject constructor(private val purchaseRepository: PurchaseRepository) : PurchaseInteractor {
+internal class PurchaseInteractorImpl @Inject constructor(private val purchaseRepository: PurchaseRepository) : PurchaseInteractor {
     override fun makePurchase(): Single<PurchaseModel> {
         return purchaseRepository.makePurchaseInStore()
                 .flatMap { purchaseModel: PurchaseModel -> doSomeLogic(purchaseModel) }

@@ -12,7 +12,7 @@ import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 
-class AntitheftMainFragment : MvpAppCompatFragment(), AntitheftMainView {
+internal class AntitheftMainFragment : MvpAppCompatFragment(), AntitheftMainView {
     @InjectPresenter
     lateinit var antitheftPresenter: AntitheftPresenter
     @ProvidePresenter
