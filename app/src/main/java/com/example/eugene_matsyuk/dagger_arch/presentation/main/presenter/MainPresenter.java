@@ -1,7 +1,7 @@
 package com.example.eugene_matsyuk.dagger_arch.presentation.main.presenter;
 
-import com.arellomobile.mvp.InjectViewState;
-import com.arellomobile.mvp.MvpPresenter;
+import moxy.InjectViewState;
+import moxy.MvpPresenter;
 import com.example.eugene_matsyuk.dagger_arch.presentation.main.view.MainView;
 
 import javax.inject.Inject;

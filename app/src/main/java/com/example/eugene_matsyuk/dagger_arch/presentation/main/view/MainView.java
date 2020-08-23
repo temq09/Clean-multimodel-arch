@@ -1,6 +1,6 @@
 package com.example.eugene_matsyuk.dagger_arch.presentation.main.view;
 
-import com.arellomobile.mvp.MvpView;
+import moxy.MvpView;
 
 public interface MainView extends MvpView {
 }

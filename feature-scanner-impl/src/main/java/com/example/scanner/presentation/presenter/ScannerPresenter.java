@@ -2,8 +2,8 @@ package com.example.scanner.presentation.presenter;
 
 import android.annotation.SuppressLint;
 
-import com.arellomobile.mvp.InjectViewState;
-import com.arellomobile.mvp.MvpPresenter;
+import moxy.InjectViewState;
+import moxy.MvpPresenter;
 import com.example.purchase_api.domain.PurchaseInteractor;
 import com.example.scanner.domain.ScannerInteractor;
 import com.example.scanner.presentation.view.ScannerMainView;

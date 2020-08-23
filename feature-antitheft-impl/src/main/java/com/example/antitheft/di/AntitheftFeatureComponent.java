@@ -54,6 +54,6 @@ public abstract class AntitheftFeatureComponent implements AntitheftFeatureApi {
         PurchaseFeatureApi.class
     })
     @PerFeature
-    interface AntitheftFeatureDependenciesComponent extends AntitheftFeatureDependencies { }
+    public interface AntitheftFeatureDependenciesComponent extends AntitheftFeatureDependencies { }
 
 }

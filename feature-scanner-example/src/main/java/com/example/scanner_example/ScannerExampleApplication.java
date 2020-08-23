@@ -2,7 +2,7 @@ package com.example.scanner_example;
 
 import android.app.Application;
 
-import com.arellomobile.mvp.RegisterMoxyReflectorPackages;
+import moxy.RegisterMoxyReflectorPackages;
 import com.example.scanner.di.ScannerFeatureComponent;
 import com.example.scanner_example.di.ScannerFeatureDependenciesFake;
 

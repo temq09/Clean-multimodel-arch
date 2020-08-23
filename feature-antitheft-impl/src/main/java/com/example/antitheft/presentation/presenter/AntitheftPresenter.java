@@ -2,8 +2,8 @@ package com.example.antitheft.presentation.presenter;
 
 import android.annotation.SuppressLint;
 
-import com.arellomobile.mvp.InjectViewState;
-import com.arellomobile.mvp.MvpPresenter;
+import moxy.InjectViewState;
+import moxy.MvpPresenter;
 import com.example.antitheft.domain.AntitheftInteractor;
 import com.example.antitheft.presentation.view.AntitheftMainView;
 import com.example.purchase_api.domain.PurchaseInteractor;

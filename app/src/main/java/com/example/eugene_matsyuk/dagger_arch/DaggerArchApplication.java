@@ -3,7 +3,7 @@ package com.example.eugene_matsyuk.dagger_arch;
 import android.app.Application;
 import android.content.Context;
 
-import com.arellomobile.mvp.RegisterMoxyReflectorPackages;
+import moxy.RegisterMoxyReflectorPackages;
 import com.example.eugene_matsyuk.dagger_arch.di.app.AppComponent;
 import com.example.eugene_matsyuk.dagger_arch.di.app.DaggerAppComponent;
 import com.example.eugene_matsyuk.dagger_arch.routing.GlobalNavigator;

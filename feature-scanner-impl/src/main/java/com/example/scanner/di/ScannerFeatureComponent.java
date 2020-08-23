@@ -54,6 +54,6 @@ public abstract class ScannerFeatureComponent implements ScannerFeatureApi {
         PurchaseFeatureApi.class
     })
     @PerFeature
-    interface ScannerFeatureDependenciesComponent extends ScannerFeatureDependencies { }
+    public interface ScannerFeatureDependenciesComponent extends ScannerFeatureDependencies { }
 
 }

@@ -33,6 +33,6 @@ public abstract class PurchaseComponent implements PurchaseFeatureApi {
 
     @Component(dependencies = CoreNetworkApi.class)
     @PerFeature
-    interface PurchaseFeatureDependenciesComponent extends PurchaseFeatureDependencies { }
+    public interface PurchaseFeatureDependenciesComponent extends PurchaseFeatureDependencies { }
 
 }
