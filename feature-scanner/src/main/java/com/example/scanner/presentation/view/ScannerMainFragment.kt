@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.scanner.R
+import com.example.feature_scanner_api.R
 import com.example.scanner.di.ScannerFeatureComponent
 import com.example.scanner.presentation.presenter.ScannerPresenter
 import moxy.MvpAppCompatFragment

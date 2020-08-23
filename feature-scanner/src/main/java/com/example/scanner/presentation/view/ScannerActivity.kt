@@ -2,7 +2,7 @@ package com.example.scanner.presentation.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.scanner.R
+import com.example.feature_scanner_api.R
 import com.example.scanner.di.ScannerFeatureComponent
 import com.example.scanner.routing.ScannerRoutingScreens.SCANNER_MAIN
 import ru.terrakok.cicerone.Navigator

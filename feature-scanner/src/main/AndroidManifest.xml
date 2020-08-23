@@ -1,4 +1,4 @@
-<manifest package="com.example.scanner"
+<manifest package="com.example.feature_scanner_api"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
@@ -8,5 +8,4 @@
         <activity android:name="com.example.scanner.presentation.view.ScannerActivity">
         </activity>
     </application>
-
 </manifest>
