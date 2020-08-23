@@ -7,6 +7,5 @@ include ':app',
         ':core-db-api',
         ':core-db-impl',
         ':core-utils',
-        ':feature-purchase-api',
-        ':feature-purchase-impl',
+        ':feature-purchase',
         ':feature-antitheft-impl'

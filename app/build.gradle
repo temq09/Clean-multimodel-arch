@@ -32,8 +32,7 @@ dependencies {
     implementation project(':feature-scanner')
     implementation project(':feature-antitheft-api')
     implementation project(':feature-antitheft-impl')
-    implementation project(':feature-purchase-api')
-    implementation project(':feature-purchase-impl')
+    implementation project(':feature-purchase')
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

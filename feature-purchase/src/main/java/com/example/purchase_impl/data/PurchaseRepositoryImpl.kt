@@ -5,7 +5,6 @@ import com.example.core_network_api.data.HttpClientApi
 import com.example.purchase_api.domain.models.PurchaseModel
 import com.example.purchase_impl.domain.PurchaseRepository
 import io.reactivex.Single
-import io.reactivex.functions.Function
 import javax.inject.Inject
 
 @PerFeature
