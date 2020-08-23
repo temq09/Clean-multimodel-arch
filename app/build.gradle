@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -43,11 +44,11 @@ dependencies {
     // dagger
     compileOnly 'javax.annotation:jsr250-api:1.0'
     implementation "com.google.dagger:dagger:${versions.dagger}"
-    annotationProcessor "com.google.dagger:dagger-compiler:${versions.dagger}"
+    kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
     // moxy
     implementation "com.github.moxy-community:moxy:${versions.moxy}"
     implementation "com.github.moxy-community:moxy-app-compat:${versions.moxy}"
-    annotationProcessor "com.github.moxy-community:moxy-compiler:${versions.moxy}"
+    kapt "com.github.moxy-community:moxy-compiler:${versions.moxy}"
     // RxJava
     implementation "io.reactivex.rxjava2:rxjava:${versions.rxJava}"
     implementation "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}"
