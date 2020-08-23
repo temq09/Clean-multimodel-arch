@@ -2,7 +2,8 @@ include ':app',
         ':feature-scanner',
         ':feature-antitheft',
         ':feature-scanner-example',
+        ':feature-purchase',
         ':core-network',
         ':core-db',
         ':core-utils',
-        ':feature-purchase'
+        ':module-injector'

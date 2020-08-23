@@ -1,5 +1,7 @@
 package com.example.feature_antitheft_api
 
-interface AntitheftFeatureApi {
+import com.example.module_injector.BaseAPI
+
+interface AntitheftFeatureApi: BaseAPI {
     fun antitheftStarter(): AntitheftStarter
 }

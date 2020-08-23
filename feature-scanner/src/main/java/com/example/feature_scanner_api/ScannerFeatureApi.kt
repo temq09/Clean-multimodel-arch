@@ -1,5 +1,7 @@
 package com.example.feature_scanner_api
 
-interface ScannerFeatureApi {
+import com.example.module_injector.BaseAPI
+
+interface ScannerFeatureApi : BaseAPI {
     fun scannerStarter(): ScannerStarter
 }
