@@ -1,11 +1,10 @@
 include ':app',
         ':feature-scanner',
-        ':feature-antitheft-api',
+        ':feature-antitheft',
         ':feature-scanner-example',
         ':core-network-api',
         ':core-network-impl',
         ':core-db-api',
         ':core-db-impl',
         ':core-utils',
-        ':feature-purchase',
-        ':feature-antitheft-impl'
+        ':feature-purchase'

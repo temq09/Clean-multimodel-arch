@@ -30,8 +30,7 @@ dependencies {
     implementation project(':core-network-api')
     implementation project(':core-network-impl')
     implementation project(':feature-scanner')
-    implementation project(':feature-antitheft-api')
-    implementation project(':feature-antitheft-impl')
+    implementation project(':feature-antitheft')
     implementation project(':feature-purchase')
 
     implementation 'androidx.appcompat:appcompat:1.2.0'

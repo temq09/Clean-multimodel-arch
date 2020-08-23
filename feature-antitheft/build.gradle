@@ -5,18 +5,14 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
 
+
+
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
-
-        kapt {
-            arguments {
-                arg("moxyReflectorPackage", "com.example.antitheft")
-            }
-        }
 
     }
 
@@ -27,11 +23,6 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
 }
 
 dependencies {
@@ -39,7 +30,6 @@ dependencies {
     implementation project(':core-network-api')
     implementation project(':core-db-api')
     implementation project(':feature-purchase')
-    implementation project(':feature-antitheft-api')
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
     // dagger

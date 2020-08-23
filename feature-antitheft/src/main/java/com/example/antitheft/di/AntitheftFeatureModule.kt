@@ -1,6 +1,6 @@
 package com.example.antitheft.di
 
-import com.example.antitheft.data.repositories_impl.AntitheftRepositoryImpl
+import com.example.antitheft.repositories_impl.AntitheftRepositoryImpl
 import com.example.antitheft.domain.AntitheftInteractor
 import com.example.antitheft.domain.AntitheftInteractorImpl
 import com.example.antitheft.domain.AntitheftRepository

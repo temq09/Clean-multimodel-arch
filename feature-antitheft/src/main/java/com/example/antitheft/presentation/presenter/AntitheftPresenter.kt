@@ -17,8 +17,8 @@ import javax.inject.Inject
 
 @InjectViewState
 internal class AntitheftPresenter @Inject constructor(private val antitheftInteractor: AntitheftInteractor,
-                                             private val purchaseInteractor: PurchaseInteractor,
-                                             private val router: Router) : MvpPresenter<AntitheftMainView>() {
+                                                      private val purchaseInteractor: PurchaseInteractor,
+                                                      private val router: Router) : MvpPresenter<AntitheftMainView>() {
     @SuppressLint("CheckResult")
     fun clickToAtWork() {
         antitheftInteractor.doAntitheftWork()

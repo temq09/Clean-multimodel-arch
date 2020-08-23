@@ -1,4 +1,4 @@
-package com.example.antitheft.data.repositories_impl
+package com.example.antitheft.repositories_impl
 
 import com.example.antitheft.domain.AntitheftRepository
 import com.example.antitheft.domain.models.AntitheftModel
