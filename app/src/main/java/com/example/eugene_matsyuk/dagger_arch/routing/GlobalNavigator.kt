@@ -3,6 +3,7 @@ package com.example.eugene_matsyuk.dagger_arch.routing
 import android.content.Context
 import com.example.eugene_matsyuk.dagger_arch.di.FeatureProxyInjector
 import ru.terrakok.cicerone.Navigator
+import ru.terrakok.cicerone.Screen
 import ru.terrakok.cicerone.commands.Command
 import ru.terrakok.cicerone.commands.Forward
 import javax.inject.Inject
@@ -25,11 +26,11 @@ class GlobalNavigator @Inject constructor(private val mContext: Context) : Navig
     }
 
     private fun forward(command: Forward) {
-        val name = command.screenKey
+        val name = command.screen
         startFeatureStartPoint(name)
     }
 
-    private fun startFeatureStartPoint(name: String) {
+    private fun startFeatureStartPoint(name: Screen) {
         when (name) {
             GlobalScreenNames.SCANNER_FEATURE -> {
                 FeatureProxyInjector.featureScanner.scannerStarter().start(mContext)

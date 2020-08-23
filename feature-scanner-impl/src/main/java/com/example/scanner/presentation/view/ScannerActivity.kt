@@ -1,14 +1,14 @@
 package com.example.scanner.presentation.view
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.scanner.R
 import com.example.scanner.di.ScannerFeatureComponent
-import com.example.scanner.routing.ScannerNavigator
 import com.example.scanner.routing.ScannerRoutingScreens.SCANNER_MAIN
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
+import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import javax.inject.Inject
 
 class ScannerActivity : AppCompatActivity() {
@@ -21,7 +21,7 @@ class ScannerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         ScannerFeatureComponent.get().inject(this)
-        navigator = ScannerNavigator(this, supportFragmentManager, R.id.details)
+        navigator = SupportAppNavigator(this, supportFragmentManager, R.id.details)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scanner)
         if (savedInstanceState == null) {

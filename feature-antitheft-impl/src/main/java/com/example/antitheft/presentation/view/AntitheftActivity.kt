@@ -1,14 +1,14 @@
 package com.example.antitheft.presentation.view
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.antitheft.R
 import com.example.antitheft.di.AntitheftFeatureComponent.Companion.get
-import com.example.antitheft.routing.AntitheftNavigator
 import com.example.antitheft.routing.AntitheftRoutingScreens
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
+import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import javax.inject.Inject
 
 class AntitheftActivity : AppCompatActivity() {
@@ -21,7 +21,7 @@ class AntitheftActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         get().inject(this)
-        navigator = AntitheftNavigator(this, supportFragmentManager, R.id.details)
+        navigator = SupportAppNavigator(this, supportFragmentManager, R.id.details)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_antitheft)
         if (savedInstanceState == null) {

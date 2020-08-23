@@ -11,7 +11,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         kapt {
             arguments {
@@ -42,7 +41,7 @@ dependencies {
     implementation project(':feature-purchase-api')
     implementation project(':feature-antitheft-api')
 
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
     // dagger
     compileOnly 'javax.annotation:jsr250-api:1.0'
     implementation "com.google.dagger:dagger:${versions.dagger}"
@@ -52,7 +51,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}"
     // moxy
     implementation "com.github.moxy-community:moxy:${versions.moxy}"
-    implementation "com.github.moxy-community:moxy-app-compat:${versions.moxy}"
+    implementation "com.github.moxy-community:moxy-androidx:${versions.moxy}"
     kapt "com.github.moxy-community:moxy-compiler:${versions.moxy}"
     // cicerone
     implementation "ru.terrakok.cicerone:cicerone:${versions.cicerone}"

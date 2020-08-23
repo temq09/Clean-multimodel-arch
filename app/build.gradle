@@ -10,7 +10,6 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -37,8 +36,8 @@ dependencies {
     implementation project(':feature-purchase-api')
     implementation project(':feature-purchase-impl')
 
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:2.0.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     // cicerone
     implementation "ru.terrakok.cicerone:cicerone:${versions.cicerone}"
     // dagger
@@ -47,7 +46,7 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
     // moxy
     implementation "com.github.moxy-community:moxy:${versions.moxy}"
-    implementation "com.github.moxy-community:moxy-app-compat:${versions.moxy}"
+    implementation "com.github.moxy-community:moxy-androidx:${versions.moxy}"
     kapt "com.github.moxy-community:moxy-compiler:${versions.moxy}"
     // RxJava
     implementation "io.reactivex.rxjava2:rxjava:${versions.rxJava}"
