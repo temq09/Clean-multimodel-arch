@@ -3,7 +3,6 @@ include ':app',
         ':feature-antitheft',
         ':feature-scanner-example',
         ':core-network',
-        ':core-db-api',
-        ':core-db-impl',
+        ':core-db',
         ':core-utils',
         ':feature-purchase'
