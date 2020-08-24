@@ -8,7 +8,7 @@ import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
 
 @Module
-/*internal */class ScreenNavigationModule {
+class ScreenNavigationModule {
     private val cicerone: Cicerone<Router> = Cicerone.create()
 
     @PerFeature

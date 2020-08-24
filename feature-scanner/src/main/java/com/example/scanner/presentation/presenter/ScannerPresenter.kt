@@ -9,7 +9,6 @@ import com.example.scanner.presentation.view.ScannerMainView
 import com.example.scanner.routing.ScannerRoutingScreens.SCANNER_HELP
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import moxy.InjectViewState
 import moxy.MvpPresenter
@@ -17,12 +16,12 @@ import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
 @InjectViewState
-internal class ScannerPresenter @Inject constructor(private val mScannerInteractor: ScannerInteractor,
-                                           private val mPurchaseInteractor: PurchaseInteractor,
-                                           private val mRouter: Router) : MvpPresenter<ScannerMainView>() {
+internal class ScannerPresenter @Inject constructor(private val scannerInteractor: ScannerInteractor,
+                                                    private val purchaseInteractor: PurchaseInteractor,
+                                                    private val router: Router) : MvpPresenter<ScannerMainView>() {
     @SuppressLint("CheckResult")
     fun clickToScannerWork() {
-        mScannerInteractor.doScannerWork()
+        scannerInteractor.doScannerWork()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { disposable: Disposable -> viewState.showScannerWork() }
@@ -32,7 +31,7 @@ internal class ScannerPresenter @Inject constructor(private val mScannerInteract
 
     @SuppressLint("CheckResult")
     fun clickToBuyWork() {
-        mPurchaseInteractor.makePurchase()
+        purchaseInteractor.makePurchase()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { disposable: Disposable -> viewState.showBuyWork() }
@@ -41,6 +40,6 @@ internal class ScannerPresenter @Inject constructor(private val mScannerInteract
     }
 
     fun clickToHelp() {
-        mRouter.navigateTo(SCANNER_HELP)
+        router.navigateTo(SCANNER_HELP)
     }
 }

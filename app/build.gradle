@@ -24,6 +24,8 @@ android {
 }
 
 dependencies {
+    implementation project(':module-injector')
+
     implementation project(':core-utils')
     implementation project(':core-db')
     implementation project(':core-network')
