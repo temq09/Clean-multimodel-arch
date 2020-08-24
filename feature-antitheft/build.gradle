@@ -46,5 +46,4 @@ dependencies {
     kapt "com.github.moxy-community:moxy-compiler:${versions.moxy}"
     // cicerone
     implementation "ru.terrakok.cicerone:cicerone:${versions.cicerone}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

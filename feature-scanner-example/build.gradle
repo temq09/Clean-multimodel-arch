@@ -49,5 +49,4 @@ dependencies {
     implementation "com.github.moxy-community:moxy:${versions.moxy}"
     implementation "com.github.moxy-community:moxy-androidx:${versions.moxy}"
     kapt "com.github.moxy-community:moxy-compiler:${versions.moxy}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
