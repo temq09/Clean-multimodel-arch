@@ -5,21 +5,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.antitheft.di.AntitheftFeatureComponent.Companion.get
+import com.example.antitheft.di.AntitheftFeatureComponentHolder
 import com.example.antitheft.presentation.presenter.AntitheftPresenter
 import com.example.feature_antitheft_api.R
+import dagger.Lazy
 import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
+import javax.inject.Inject
 
 internal class AntitheftMainFragment : MvpAppCompatFragment(), AntitheftMainView {
+    @Inject
+    lateinit var daggerPresenter: Lazy<AntitheftPresenter>
+
     @InjectPresenter
     lateinit var antitheftPresenter: AntitheftPresenter
+
     @ProvidePresenter
-    fun provideAntitheftPresenter(): AntitheftPresenter {
-        return get()
-                .antitheftScreenComponent()
-                .antitheftPresenter()
+    fun providePresenter(): AntitheftPresenter {
+        return daggerPresenter.get()
+    }
+
+    init {
+        AntitheftFeatureComponentHolder.getComponent().inject(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

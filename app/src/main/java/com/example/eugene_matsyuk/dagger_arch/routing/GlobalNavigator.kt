@@ -1,7 +1,7 @@
 package com.example.eugene_matsyuk.dagger_arch.routing
 
 import android.content.Context
-import com.example.eugene_matsyuk.dagger_arch.di.FeatureProxyInjector
+import com.example.feature_antitheft_api.AntitheftFeatureApi
 import com.example.feature_scanner_api.ScannerFeatureApi
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.Screen
@@ -13,6 +13,7 @@ import javax.inject.Singleton
 @Singleton
 class GlobalNavigator @Inject constructor(
         private val featureScanner: ScannerFeatureApi,
+        private val featureAntitheft: AntitheftFeatureApi,
         private val context: Context
 ) : Navigator {
     override fun applyCommands(commands: Array<Command>) {
@@ -41,7 +42,7 @@ class GlobalNavigator @Inject constructor(
                 return
             }
             GlobalScreenNames.AV_FEATURE -> {
-                FeatureProxyInjector.featureAntitheft.antitheftStarter().start(context)
+                featureAntitheft.antitheftStarter().start(context)
                 return
             }
             else -> throw RuntimeException("Unexpected screen: $name")

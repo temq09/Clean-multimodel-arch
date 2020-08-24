@@ -1,6 +1,8 @@
 package com.example.eugene_matsyuk.dagger_arch.di.app
 
 import android.content.Context
+import com.example.antitheft.di.AntitheftFeatureComponentHolder
+import com.example.antitheft.di.AntitheftFeatureDependencies
 import com.example.core.di.app.CoreUtilsComponent
 import com.example.core.utils.SomeUtils
 import com.example.core_db_api.data.DbClientApi
@@ -8,6 +10,7 @@ import com.example.core_db_impl.di.CoreDbComponent
 import com.example.core_network_api.data.HttpClientApi
 import com.example.core_network_impl.di.CoreNetworkComponent
 import com.example.eugene_matsyuk.dagger_arch.DaggerArchApplication
+import com.example.feature_antitheft_api.AntitheftFeatureApi
 import com.example.feature_scanner_api.ScannerFeatureApi
 import com.example.purchase_api.di.PurchaseFeatureApi
 import com.example.purchase_api.domain.PurchaseInteractor
@@ -42,12 +45,17 @@ class AppModule {
         }
     }
 
-    private fun featurePurchaseGet(): PurchaseFeatureApi {
-        return PurchaseComponent.initAndGet(
-                DaggerPurchaseComponent_PurchaseFeatureDependenciesComponent.builder()
-                        .coreNetworkApi(CoreNetworkComponent.get())
-                        .build()
-        )
+    @Singleton
+    @Provides
+    fun provideAntitheftFeatureDependencies(): AntitheftFeatureDependencies {
+        return object : AntitheftFeatureDependencies {
+            override fun dbClient(): DbClientApi = CoreDbComponent.get().dbClientApi()
+
+            override fun httpClient(): HttpClientApi = CoreNetworkComponent.get().httpClientApi()
+
+            override fun purchaseInteractor(): PurchaseInteractor = featurePurchaseGet().purchaseInteractor()
+
+        }
     }
 
     @Singleton
@@ -56,4 +64,20 @@ class AppModule {
         ScannerFeatureComponentHolder.init(dependencies)
         return ScannerFeatureComponentHolder.get()
     }
+
+    @Singleton
+    @Provides
+    fun provideFeatureAntitheft(dependencies: AntitheftFeatureDependencies): AntitheftFeatureApi {
+        AntitheftFeatureComponentHolder.init(dependencies)
+        return AntitheftFeatureComponentHolder.get()
+    }
+
+    private fun featurePurchaseGet(): PurchaseFeatureApi {
+        return PurchaseComponent.initAndGet(
+                DaggerPurchaseComponent_PurchaseFeatureDependenciesComponent.builder()
+                        .coreNetworkApi(CoreNetworkComponent.get())
+                        .build()
+        )
+    }
+
 }
