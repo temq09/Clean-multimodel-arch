@@ -11,7 +11,7 @@ import dagger.Component
         dependencies = [ScannerFeatureDependencies::class]
 )
 @PerFeature
-abstract class ScannerFeatureComponent : ScannerFeatureApi {
+internal abstract class ScannerFeatureComponent : ScannerFeatureApi {
 
     internal abstract fun inject(scannerActivity: ScannerActivity)
     internal abstract fun inject(scannerMainFragment: ScannerMainFragment)

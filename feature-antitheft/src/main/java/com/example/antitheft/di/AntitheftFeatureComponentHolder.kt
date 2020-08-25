@@ -16,10 +16,7 @@ object AntitheftFeatureComponentHolder : ComponentHolder<AntitheftFeatureApi, An
         }
     }
 
-    override fun get(): AntitheftFeatureApi {
-        checkNotNull(antitheftFeatureComponent) { "AntitheftFeatureComponent was not initialized!" }
-        return antitheftFeatureComponent!!
-    }
+    override fun get(): AntitheftFeatureApi = getComponent()
 
     internal fun getComponent(): AntitheftFeatureComponent {
         checkNotNull(antitheftFeatureComponent) { "AntitheftFeatureComponent was not initialized!" }

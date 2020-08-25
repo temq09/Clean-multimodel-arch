@@ -16,10 +16,7 @@ object ScannerFeatureComponentHolder : ComponentHolder<ScannerFeatureApi, Scanne
         }
     }
 
-    override fun get(): ScannerFeatureApi {
-        checkNotNull(scannerFeatureComponent) { "ScannerFeatureComponent was not initialized!" }
-        return scannerFeatureComponent!!
-    }
+    override fun get(): ScannerFeatureApi = getComponent()
 
     internal fun getComponent(): ScannerFeatureComponent {
         checkNotNull(scannerFeatureComponent) { "ScannerFeatureComponent was not initialized!" }

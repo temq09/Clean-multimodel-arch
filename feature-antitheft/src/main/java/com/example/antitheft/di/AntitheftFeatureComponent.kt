@@ -11,7 +11,7 @@ import dagger.Component
         dependencies = [AntitheftFeatureDependencies::class]
 )
 @PerFeature
-abstract class AntitheftFeatureComponent : AntitheftFeatureApi {
+internal abstract class AntitheftFeatureComponent : AntitheftFeatureApi {
 
     internal abstract fun inject(antitheftActivity: AntitheftActivity)
     internal abstract fun inject(antitheftMainFragment: AntitheftMainFragment)
