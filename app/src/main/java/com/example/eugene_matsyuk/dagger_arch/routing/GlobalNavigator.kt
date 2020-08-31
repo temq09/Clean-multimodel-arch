@@ -1,8 +1,8 @@
 package com.example.eugene_matsyuk.dagger_arch.routing
 
 import android.content.Context
-import com.example.feature_antitheft_api.AntitheftFeatureApi
-import com.example.feature_scanner_api.ScannerFeatureApi
+import com.example.antitheft_api.AntitheftFeatureApi
+import com.example.scanner_api.ScannerFeatureApi
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.Screen
 import ru.terrakok.cicerone.commands.Command

@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.scanner.presentation.view.ScannerActivity">
+        <activity android:name="com.example.scanner_impl.presentation.view.ScannerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

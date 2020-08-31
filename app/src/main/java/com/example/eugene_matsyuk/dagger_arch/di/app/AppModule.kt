@@ -1,8 +1,8 @@
 package com.example.eugene_matsyuk.dagger_arch.di.app
 
 import android.content.Context
-import com.example.antitheft.di.AntitheftFeatureComponentHolder
-import com.example.antitheft.di.AntitheftFeatureDependencies
+import com.example.antitheft_impl.di.AntitheftFeatureComponentHolder
+import com.example.antitheft_impl.di.AntitheftFeatureDependencies
 import com.example.core.di.app.CoreUtilsComponent
 import com.example.core.utils.SomeUtils
 import com.example.core_db_api.data.DbClientApi
@@ -10,14 +10,14 @@ import com.example.core_db_impl.di.CoreDbComponent
 import com.example.core_network_api.data.HttpClientApi
 import com.example.core_network_impl.di.CoreNetworkComponent
 import com.example.eugene_matsyuk.dagger_arch.DaggerArchApplication
-import com.example.feature_antitheft_api.AntitheftFeatureApi
-import com.example.feature_scanner_api.ScannerFeatureApi
-import com.example.purchase_api.di.PurchaseFeatureApi
+import com.example.antitheft_api.AntitheftFeatureApi
+import com.example.scanner_api.ScannerFeatureApi
+import com.example.purchase_api.PurchaseFeatureApi
 import com.example.purchase_api.domain.PurchaseInteractor
-import com.example.purchase_impl.di.DaggerPurchaseComponent_PurchaseFeatureDependenciesComponent
-import com.example.purchase_impl.di.PurchaseComponent
-import com.example.scanner.di.ScannerFeatureComponentHolder
-import com.example.scanner.di.ScannerFeatureDependencies
+import com.example.purchase_impl.di.PurchaseComponentHolder
+import com.example.purchase_impl.di.PurchaseFeatureDependencies
+import com.example.scanner_impl.di.ScannerFeatureComponentHolder
+import com.example.scanner_impl.di.ScannerFeatureDependencies
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -32,7 +32,7 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideScannerFeatureDependencies(): ScannerFeatureDependencies {
+    fun provideScannerFeatureDependencies(featurePurchase: PurchaseFeatureApi): ScannerFeatureDependencies {
         return object : ScannerFeatureDependencies {
             override fun dbClient(): DbClientApi = CoreDbComponent.get().dbClientApi()
 
@@ -40,21 +40,28 @@ class AppModule {
 
             override fun someUtils(): SomeUtils = CoreUtilsComponent.get().someUtils()
 
-            override fun purchaseInteractor(): PurchaseInteractor = featurePurchaseGet().purchaseInteractor()
+            override fun purchaseInteractor(): PurchaseInteractor = featurePurchase.purchaseInteractor()
 
         }
     }
 
     @Singleton
     @Provides
-    fun provideAntitheftFeatureDependencies(): AntitheftFeatureDependencies {
+    fun provideAntitheftFeatureDependencies(featurePurchase: PurchaseFeatureApi): AntitheftFeatureDependencies {
         return object : AntitheftFeatureDependencies {
             override fun dbClient(): DbClientApi = CoreDbComponent.get().dbClientApi()
 
             override fun httpClient(): HttpClientApi = CoreNetworkComponent.get().httpClientApi()
 
-            override fun purchaseInteractor(): PurchaseInteractor = featurePurchaseGet().purchaseInteractor()
+            override fun purchaseInteractor(): PurchaseInteractor = featurePurchase.purchaseInteractor()
+        }
+    }
 
+    @Singleton
+    @Provides
+    fun providePurchaseFeatureDependencies(): PurchaseFeatureDependencies {
+        return object : PurchaseFeatureDependencies {
+            override fun httpClient(): HttpClientApi = CoreNetworkComponent.get().httpClientApi()
         }
     }
 
@@ -72,12 +79,10 @@ class AppModule {
         return AntitheftFeatureComponentHolder.get()
     }
 
-    private fun featurePurchaseGet(): PurchaseFeatureApi {
-        return PurchaseComponent.initAndGet(
-                DaggerPurchaseComponent_PurchaseFeatureDependenciesComponent.builder()
-                        .coreNetworkApi(CoreNetworkComponent.get())
-                        .build()
-        )
+    @Singleton
+    @Provides
+    fun provideFeaturePurchase(dependencies: PurchaseFeatureDependencies): PurchaseFeatureApi {
+        PurchaseComponentHolder.init(dependencies)
+        return PurchaseComponentHolder.get()
     }
-
 }
