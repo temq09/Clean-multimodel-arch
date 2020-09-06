@@ -4,5 +4,5 @@ import com.example.purchase_api.domain.models.PurchaseModel
 import io.reactivex.Single
 
 internal interface PurchaseRepository {
-    fun makePurchaseInStore(): Single<PurchaseModel>
+    fun makePurchaseInStore(): Single<com.example.purchase_api.domain.models.PurchaseModel>
 }

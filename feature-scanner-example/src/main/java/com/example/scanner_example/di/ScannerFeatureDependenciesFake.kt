@@ -23,7 +23,7 @@ class ScannerFeatureDependenciesFake : ScannerFeatureDependencies {
         return get().someUtils()
     }
 
-    override fun purchaseInteractor(): PurchaseInteractor {
+    override fun purchaseInteractor(): com.example.purchase_api.domain.PurchaseInteractor {
         return PurchaseInteractorFake()
     }
 }

@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @InjectViewState
 internal class AntitheftPresenter @Inject constructor(private val antitheftInteractor: AntitheftInteractor,
-                                                      private val purchaseInteractor: PurchaseInteractor,
+                                                      private val purchaseInteractor: com.example.purchase_api.domain.PurchaseInteractor,
                                                       private val router: Router) : MvpPresenter<AntitheftMainView>() {
     @SuppressLint("CheckResult")
     fun clickToAtWork() {
@@ -35,8 +35,8 @@ internal class AntitheftPresenter @Inject constructor(private val antitheftInter
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { disposable: Disposable -> viewState.showBuyWork() }
-                .doOnSuccess { antitheftModel: PurchaseModel -> viewState.showBuySuccess() }
-                .subscribe({ antitheftModel: PurchaseModel -> }) { throwable: Throwable -> }
+                .doOnSuccess { antitheftModel: com.example.purchase_api.domain.models.PurchaseModel -> viewState.showBuySuccess() }
+                .subscribe({ antitheftModel: com.example.purchase_api.domain.models.PurchaseModel -> }) { throwable: Throwable -> }
     }
 
     fun clickToHelp() {
