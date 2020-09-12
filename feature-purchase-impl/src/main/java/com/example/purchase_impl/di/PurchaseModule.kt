@@ -15,5 +15,5 @@ internal abstract class PurchaseModule {
     abstract fun providePurchaseRepository(purchaseRepository: PurchaseRepositoryImpl): PurchaseRepository
     @PerFeature
     @Binds
-    abstract fun providePurchaseInteractor(purchaseInteractor: PurchaseInteractorImpl): PurchaseInteractor
+    abstract fun providePurchaseInteractor(purchaseInteractor: PurchaseInteractorImpl): com.example.purchase_api.domain.PurchaseInteractor
 }

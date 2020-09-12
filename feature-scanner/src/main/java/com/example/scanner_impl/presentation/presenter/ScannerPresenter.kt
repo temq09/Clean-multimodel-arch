@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @InjectViewState
 internal class ScannerPresenter @Inject constructor(private val scannerInteractor: ScannerInteractor,
-                                                    private val purchaseInteractor: PurchaseInteractor,
+                                                    private val purchaseInteractor: com.example.purchase_api.domain.PurchaseInteractor,
                                                     private val router: Router) : MvpPresenter<ScannerMainView>() {
     @SuppressLint("CheckResult")
     fun clickToScannerWork() {
@@ -35,8 +35,8 @@ internal class ScannerPresenter @Inject constructor(private val scannerInteracto
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { disposable: Disposable -> viewState.showBuyWork() }
-                .doOnSuccess { antitheftModel: PurchaseModel -> viewState.showBuySuccess() }
-                .subscribe({ antitheftModel: PurchaseModel -> }, { throwable: Throwable -> })
+                .doOnSuccess { antitheftModel: com.example.purchase_api.domain.models.PurchaseModel -> viewState.showBuySuccess() }
+                .subscribe({ antitheftModel: com.example.purchase_api.domain.models.PurchaseModel -> }, { throwable: Throwable -> })
     }
 
     fun clickToHelp() {

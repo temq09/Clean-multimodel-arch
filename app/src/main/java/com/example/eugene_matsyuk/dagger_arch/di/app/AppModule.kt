@@ -32,7 +32,7 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideScannerFeatureDependencies(featurePurchase: PurchaseFeatureApi): ScannerFeatureDependencies {
+    fun provideScannerFeatureDependencies(featurePurchase: com.example.purchase_api.PurchaseFeatureApi): ScannerFeatureDependencies {
         return object : ScannerFeatureDependencies {
             override fun dbClient(): DbClientApi = CoreDbComponent.get().dbClientApi()
 
@@ -40,20 +40,20 @@ class AppModule {
 
             override fun someUtils(): SomeUtils = CoreUtilsComponent.get().someUtils()
 
-            override fun purchaseInteractor(): PurchaseInteractor = featurePurchase.purchaseInteractor()
+            override fun purchaseInteractor(): com.example.purchase_api.domain.PurchaseInteractor = featurePurchase.purchaseInteractor()
 
         }
     }
 
     @Singleton
     @Provides
-    fun provideAntitheftFeatureDependencies(featurePurchase: PurchaseFeatureApi): AntitheftFeatureDependencies {
+    fun provideAntitheftFeatureDependencies(featurePurchase: com.example.purchase_api.PurchaseFeatureApi): AntitheftFeatureDependencies {
         return object : AntitheftFeatureDependencies {
             override fun dbClient(): DbClientApi = CoreDbComponent.get().dbClientApi()
 
             override fun httpClient(): HttpClientApi = CoreNetworkComponent.get().httpClientApi()
 
-            override fun purchaseInteractor(): PurchaseInteractor = featurePurchase.purchaseInteractor()
+            override fun purchaseInteractor(): com.example.purchase_api.domain.PurchaseInteractor = featurePurchase.purchaseInteractor()
         }
     }
 
@@ -81,7 +81,7 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideFeaturePurchase(dependencies: PurchaseFeatureDependencies): PurchaseFeatureApi {
+    fun provideFeaturePurchase(dependencies: PurchaseFeatureDependencies): com.example.purchase_api.PurchaseFeatureApi {
         PurchaseComponentHolder.init(dependencies)
         return PurchaseComponentHolder.get()
     }

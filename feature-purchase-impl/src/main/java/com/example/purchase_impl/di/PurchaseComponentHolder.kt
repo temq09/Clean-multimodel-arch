@@ -3,7 +3,7 @@ package com.example.purchase_impl.di
 import com.example.module_injector.ComponentHolder
 import com.example.purchase_api.PurchaseFeatureApi
 
-object PurchaseComponentHolder : ComponentHolder<PurchaseFeatureApi, PurchaseFeatureDependencies> {
+object PurchaseComponentHolder : ComponentHolder<com.example.purchase_api.PurchaseFeatureApi, PurchaseFeatureDependencies> {
     private var purchaseComponentHolder: PurchaseComponent? = null
 
     override fun init(dependencies: PurchaseFeatureDependencies) {
@@ -16,7 +16,7 @@ object PurchaseComponentHolder : ComponentHolder<PurchaseFeatureApi, PurchaseFea
         }
     }
 
-    override fun get(): PurchaseFeatureApi {
+    override fun get(): com.example.purchase_api.PurchaseFeatureApi {
         checkNotNull(purchaseComponentHolder) { "PurchaseComponent was not initialized!" }
         return purchaseComponentHolder!!
     }

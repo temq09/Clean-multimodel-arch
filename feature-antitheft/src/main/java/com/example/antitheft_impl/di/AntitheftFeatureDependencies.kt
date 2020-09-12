@@ -8,5 +8,5 @@ import com.example.purchase_api.domain.PurchaseInteractor
 interface AntitheftFeatureDependencies : BaseDependencies {
     fun dbClient(): DbClientApi
     fun httpClient(): HttpClientApi
-    fun purchaseInteractor(): PurchaseInteractor
+    fun purchaseInteractor(): com.example.purchase_api.domain.PurchaseInteractor
 }
