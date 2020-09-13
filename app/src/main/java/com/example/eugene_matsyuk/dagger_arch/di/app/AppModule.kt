@@ -72,14 +72,12 @@ class AppModule {
         return ScannerFeatureComponentHolder.get()
     }
 
-    @Singleton
     @Provides
     fun provideFeatureAntitheft(dependencies: AntitheftFeatureDependencies): AntitheftFeatureApi {
         AntitheftFeatureComponentHolder.init(dependencies)
         return AntitheftFeatureComponentHolder.get()
     }
 
-    @Singleton
     @Provides
     fun provideFeaturePurchase(dependencies: PurchaseFeatureDependencies): com.example.purchase_api.PurchaseFeatureApi {
         PurchaseComponentHolder.init(dependencies)
