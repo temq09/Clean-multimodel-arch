@@ -5,9 +5,9 @@ import com.example.purchase_api.domain.models.PurchaseModel
 import io.reactivex.Single
 import java.util.concurrent.TimeUnit
 
-class PurchaseInteractorFake : com.example.purchase_api.domain.PurchaseInteractor {
-    override fun makePurchase(): Single<com.example.purchase_api.domain.models.PurchaseModel> {
+class PurchaseInteractorFake : PurchaseInteractor {
+    override fun makePurchase(): Single<PurchaseModel> {
         return Single.timer(100, TimeUnit.MILLISECONDS)
-                .map { aLong: Long -> com.example.purchase_api.domain.models.PurchaseModel() }
+                .map { aLong: Long -> PurchaseModel() }
     }
 }

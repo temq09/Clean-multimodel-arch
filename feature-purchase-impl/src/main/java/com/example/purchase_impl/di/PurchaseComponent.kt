@@ -6,7 +6,7 @@ import dagger.Component
 
 @Component(dependencies = [PurchaseFeatureDependencies::class], modules = [PurchaseModule::class])
 @PerFeature
-internal abstract class PurchaseComponent : com.example.purchase_api.PurchaseFeatureApi {
+internal abstract class PurchaseComponent : PurchaseFeatureApi {
 
     companion object {
         fun initAndGet(purchaseFeatureDependencies: PurchaseFeatureDependencies): PurchaseComponent {

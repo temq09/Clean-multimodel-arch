@@ -10,5 +10,5 @@ interface ScannerFeatureDependencies : BaseDependencies {
     fun dbClient(): DbClientApi
     fun httpClient(): HttpClientApi
     fun someUtils(): SomeUtils
-    fun purchaseInteractor(): com.example.purchase_api.domain.PurchaseInteractor
+    fun purchaseInteractor(): PurchaseInteractor
 }
