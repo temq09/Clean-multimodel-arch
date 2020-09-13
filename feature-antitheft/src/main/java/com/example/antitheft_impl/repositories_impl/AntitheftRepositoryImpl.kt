@@ -15,6 +15,6 @@ internal class AntitheftRepositoryImpl @Inject constructor(
 ) : AntitheftRepository {
     override fun doAntitheftLowLevelWork(): Single<AntitheftModel> {
         return httpClient.doAnyRequest()
-                .map { o: Any -> AntitheftModel() }
+                .map { AntitheftModel() }
     }
 }

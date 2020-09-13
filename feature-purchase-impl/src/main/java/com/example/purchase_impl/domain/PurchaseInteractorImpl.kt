@@ -8,14 +8,14 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @PerFeature
-internal class PurchaseInteractorImpl @Inject constructor(private val purchaseRepository: PurchaseRepository) : com.example.purchase_api.domain.PurchaseInteractor {
-    override fun makePurchase(): Single<com.example.purchase_api.domain.models.PurchaseModel> {
+internal class PurchaseInteractorImpl @Inject constructor(private val purchaseRepository: PurchaseRepository) : PurchaseInteractor {
+    override fun makePurchase(): Single<PurchaseModel> {
         return purchaseRepository.makePurchaseInStore()
-                .flatMap { purchaseModel: com.example.purchase_api.domain.models.PurchaseModel -> doSomeLogic(purchaseModel) }
+                .flatMap { purchaseModel: PurchaseModel -> doSomeLogic(purchaseModel) }
     }
 
-    private fun doSomeLogic(purchaseModel: com.example.purchase_api.domain.models.PurchaseModel): Single<com.example.purchase_api.domain.models.PurchaseModel> {
+    private fun doSomeLogic(purchaseModel: PurchaseModel): Single<PurchaseModel> {
         return Single.timer(3000, TimeUnit.MILLISECONDS)
-                .map { aLong: Long -> purchaseModel }
+                .map { purchaseModel }
     }
 }

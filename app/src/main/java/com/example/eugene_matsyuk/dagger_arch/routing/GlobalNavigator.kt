@@ -8,12 +8,13 @@ import ru.terrakok.cicerone.Screen
 import ru.terrakok.cicerone.commands.Command
 import ru.terrakok.cicerone.commands.Forward
 import javax.inject.Inject
+import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
 class GlobalNavigator @Inject constructor(
-        private val featureScanner: ScannerFeatureApi,
-        private val featureAntitheft: AntitheftFeatureApi,
+        private val featureScanner: Provider<ScannerFeatureApi>,
+        private val featureAntitheft: Provider<AntitheftFeatureApi>,
         private val context: Context
 ) : Navigator {
     override fun applyCommands(commands: Array<Command>) {
@@ -38,11 +39,11 @@ class GlobalNavigator @Inject constructor(
     private fun startFeatureStartPoint(name: Screen) {
         when (name) {
             GlobalScreenNames.SCANNER_FEATURE -> {
-                featureScanner.scannerStarter().start(context)
+                featureScanner.get().scannerStarter().start(context)
                 return
             }
             GlobalScreenNames.AV_FEATURE -> {
-                featureAntitheft.antitheftStarter().start(context)
+                featureAntitheft.get().antitheftStarter().start(context)
                 return
             }
             else -> throw RuntimeException("Unexpected screen: $name")

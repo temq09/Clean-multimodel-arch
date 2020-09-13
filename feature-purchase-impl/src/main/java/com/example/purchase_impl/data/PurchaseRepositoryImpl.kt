@@ -9,8 +9,8 @@ import javax.inject.Inject
 
 @PerFeature
 internal class PurchaseRepositoryImpl @Inject constructor(private val httpClient: HttpClientApi) : PurchaseRepository {
-    override fun makePurchaseInStore(): Single<com.example.purchase_api.domain.models.PurchaseModel> {
+    override fun makePurchaseInStore(): Single<PurchaseModel> {
         return httpClient.doAnyRequest()
-                .map { o: Any? -> com.example.purchase_api.domain.models.PurchaseModel() }
+                .map { PurchaseModel() }
     }
 }

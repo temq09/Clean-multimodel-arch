@@ -1,5 +1,6 @@
 package com.example.antitheft_impl.di
 
+import android.util.Log
 import com.example.antitheft_api.AntitheftFeatureApi
 import com.example.module_injector.ComponentHolder
 
@@ -7,9 +8,11 @@ object AntitheftFeatureComponentHolder : ComponentHolder<AntitheftFeatureApi, An
     private var antitheftFeatureComponent: AntitheftFeatureComponent? = null
 
     override fun init(dependencies: AntitheftFeatureDependencies) {
+        Log.i("AntitheftFeatureCH", "init()")
         if (antitheftFeatureComponent == null) {
             synchronized(AntitheftFeatureComponentHolder::class.java) {
                 if (antitheftFeatureComponent == null) {
+                    Log.i("AntitheftFeatureCH", "initAndGet()")
                     antitheftFeatureComponent = AntitheftFeatureComponent.initAndGet(dependencies)
                 }
             }
@@ -24,6 +27,7 @@ object AntitheftFeatureComponentHolder : ComponentHolder<AntitheftFeatureApi, An
     }
 
     override fun reset() {
+        Log.i("AntitheftFeatureCH", "reset()")
         antitheftFeatureComponent = null
     }
 
