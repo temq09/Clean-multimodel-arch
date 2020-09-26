@@ -39,11 +39,11 @@ internal class ScannerActivity : AppCompatActivity() {
     }
 
     public override fun onPause() {
+        super.onPause()
         navigatorHolder.removeNavigator()
         if (isFinishing) {
             ScannerFeatureComponentHolder.reset()
         }
-        super.onPause()
     }
 
     override fun onBackPressed() {

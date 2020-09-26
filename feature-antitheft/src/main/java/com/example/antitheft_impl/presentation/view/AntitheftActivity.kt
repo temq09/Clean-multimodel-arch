@@ -39,11 +39,11 @@ internal class AntitheftActivity : AppCompatActivity() {
     }
 
     public override fun onPause() {
+        super.onPause()
         navigatorHolder.removeNavigator()
         if (isFinishing) {
             AntitheftFeatureComponentHolder.reset()
         }
-        super.onPause()
     }
 
     override fun onBackPressed() {

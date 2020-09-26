@@ -5,9 +5,9 @@ import com.example.antitheft_impl.di.AntitheftFeatureComponentHolder
 import com.example.antitheft_impl.di.AntitheftFeatureDependencies
 import com.example.core.di.app.CoreUtilsComponent
 import com.example.core.utils.SomeUtils
-import com.example.core_db_api.data.DbClientApi
+import com.example.core_db_api.data.DbClient
 import com.example.core_db_impl.di.CoreDbComponent
-import com.example.core_network_api.data.HttpClientApi
+import com.example.core_network_api.data.HttpClient
 import com.example.core_network_impl.di.CoreNetworkComponent
 import com.example.eugene_matsyuk.dagger_arch.DaggerArchApplication
 import com.example.antitheft_api.AntitheftFeatureApi
@@ -34,9 +34,9 @@ class AppModule {
     @Provides
     fun provideScannerFeatureDependencies(featurePurchase: PurchaseFeatureApi): ScannerFeatureDependencies {
         return object : ScannerFeatureDependencies {
-            override fun dbClient(): DbClientApi = CoreDbComponent.get().dbClientApi()
+            override fun dbClient(): DbClient = CoreDbComponent.get().dbClient()
 
-            override fun httpClient(): HttpClientApi = CoreNetworkComponent.get().httpClientApi()
+            override fun httpClient(): HttpClient = CoreNetworkComponent.get().httpClient()
 
             override fun someUtils(): SomeUtils = CoreUtilsComponent.get().someUtils()
 
@@ -49,9 +49,9 @@ class AppModule {
     @Provides
     fun provideAntitheftFeatureDependencies(featurePurchase: PurchaseFeatureApi): AntitheftFeatureDependencies {
         return object : AntitheftFeatureDependencies {
-            override fun dbClient(): DbClientApi = CoreDbComponent.get().dbClientApi()
+            override fun dbClient(): DbClient = CoreDbComponent.get().dbClient()
 
-            override fun httpClient(): HttpClientApi = CoreNetworkComponent.get().httpClientApi()
+            override fun httpClient(): HttpClient = CoreNetworkComponent.get().httpClient()
 
             override fun purchaseInteractor(): PurchaseInteractor = featurePurchase.purchaseInteractor()
         }
@@ -61,7 +61,7 @@ class AppModule {
     @Provides
     fun providePurchaseFeatureDependencies(): PurchaseFeatureDependencies {
         return object : PurchaseFeatureDependencies {
-            override fun httpClient(): HttpClientApi = CoreNetworkComponent.get().httpClientApi()
+            override fun httpClient(): HttpClient = CoreNetworkComponent.get().httpClient()
         }
     }
 
