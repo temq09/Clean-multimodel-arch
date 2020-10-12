@@ -10,10 +10,11 @@ object GradleInterop {
     fun addBazelInterop(project: Project, moduleName: String? = null) {
         val pathToOutput = "${project.rootDir.path}/$BAZEL_BIN_NAME/$moduleName"
 
-        println("Use $pathToOutput for $moduleName as jar storage")
+        println("Use $pathToOutput for $moduleName as jar storage for module ${project.name}")
 
         project.apply{
             it.plugin("java")
+            it.plugin("kotlin")
         }
         with(project.dependencies) {
             add("implementation", project.fileTree(pathToOutput))
