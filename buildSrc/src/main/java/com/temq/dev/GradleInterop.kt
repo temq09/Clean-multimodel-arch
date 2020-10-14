@@ -8,16 +8,19 @@ object GradleInterop {
 
     @JvmStatic
     fun addBazelInterop(project: Project, moduleName: String? = null) {
-        val pathToOutput = "${project.rootDir.path}/$BAZEL_BIN_NAME/$moduleName"
+        val realModuleName = moduleName ?: project.name
 
-        println("Use $pathToOutput for $moduleName as jar storage for module ${project.name}")
+        val pathToOutput = "${project.rootDir.path}/$BAZEL_BIN_NAME/$realModuleName/src/main/${realModuleName}.jar"
 
-        project.apply{
+        println("Use $pathToOutput for $realModuleName as jar storage for module ${project.name}")
+
+        project.apply {
             it.plugin("java")
             it.plugin("kotlin")
         }
+
         with(project.dependencies) {
-            add("implementation", project.fileTree(pathToOutput))
+            add("api", project.fileTree(pathToOutput))
         }
     }
 }
