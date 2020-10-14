@@ -20,7 +20,7 @@ object GradleInterop {
         }
 
         with(project.dependencies) {
-            add("api", project.fileTree(pathToOutput))
+            add("api", project.fileTree(pathToOutput)) // todo can we do it via impl+something?
         }
     }
 }

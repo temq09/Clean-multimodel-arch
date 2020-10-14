@@ -2,6 +2,7 @@ import com.temq.dev.GradleInterop
 
 GradleInterop.addBazelInterop(project, "core-utils")
 
+//todo move it to the interop method, exclude main src folder
 sourceSets {
     main {
         java {
