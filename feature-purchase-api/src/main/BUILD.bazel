@@ -1,0 +1,13 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_library")
+
+kt_jvm_library(
+    name = "feature-purchase-api",
+    srcs = glob([
+        "**/*.kt",
+        "**/*.java",
+    ]),
+    deps = [
+        "//module-injector/src/main:module_injector",
+        "@maven//:io_reactivex_rxjava2_rxjava",
+    ],
+)
