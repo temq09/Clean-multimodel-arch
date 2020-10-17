@@ -1,36 +1,12 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
+import com.temq.dev.GradleInterop
 
-android {
-    compileSdkVersion 28
+GradleInterop.addBazelInterop(project, "core-db")
 
-
-
-    defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-
-
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//todo move it to the interop method, exclude main src folder
+sourceSets {
+    main {
+        java {
+            exclude("com")
         }
     }
-
-}
-
-dependencies {
-    implementation project(':module-injector')
-
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    // dagger
-    compileOnly 'javax.annotation:jsr250-api:1.0'
-    implementation "com.google.dagger:dagger:${versions.dagger}"
-    kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
 }
