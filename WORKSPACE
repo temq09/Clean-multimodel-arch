@@ -18,14 +18,6 @@ http_archive(
 )
 
 load("@rules_jvm_external//:defs.bzl", "maven_install")
-
-#maven_install(
-#    repositories = [
-#        "https://jcenter.bintray.com/",
-#        "https://maven.google.com",
-#        "https://repo1.maven.org/maven2",
-#    ],
-#)
 # END maven section
 
 # BEGIN Kotlin section
@@ -64,14 +56,12 @@ http_archive(
 
 load("@dagger//:workspace_defs.bzl", "DAGGER_ARTIFACTS", "DAGGER_REPOSITORIES")
 
-#maven_install(
-#    artifacts = DAGGER_ANDROID_ARTIFACTS,
-#    repositories = DAGGER_ANDROID_REPOSITORIES,
-#)
 # END Dagger2 section
 
 maven_install(
-    artifacts = DAGGER_ARTIFACTS,
+    artifacts = DAGGER_ARTIFACTS + [
+        "io.reactivex.rxjava2:rxjava:2.2.20",
+    ],
     repositories = DAGGER_REPOSITORIES + [
         "https://jcenter.bintray.com/",
         "https://maven.google.com",
