@@ -1,10 +1,16 @@
 load("@dagger//:workspace_defs.bzl", "dagger_rules")
+
 dagger_rules()
 
 load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_library")
+
 kt_jvm_library(
     name = "core-utils",
-    srcs = glob(["**/*.kt", "**/*.java"]),
+    srcs = glob([
+        "**/*.kt",
+        "**/*.java",
+    ]),
+    visibility = ["//visibility:public"],
     deps = [
         ":dagger",
         "//module-injector/src/main:module_injector",

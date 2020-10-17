@@ -1,6 +1,5 @@
 package com.example.purchase_impl.di
 
-import android.util.Log
 import com.example.module_injector.ComponentHolder
 import com.example.purchase_api.PurchaseFeatureApi
 
@@ -8,11 +7,9 @@ object PurchaseComponentHolder : ComponentHolder<PurchaseFeatureApi, PurchaseFea
     private var purchaseComponentHolder: PurchaseComponent? = null
 
     override fun init(dependencies: PurchaseFeatureDependencies) {
-        Log.i("PurchaseCH", "init()")
         if (purchaseComponentHolder == null) {
             synchronized(PurchaseComponentHolder::class.java) {
                 if (purchaseComponentHolder == null) {
-                    Log.i("PurchaseCH", "initAndGet()")
                     purchaseComponentHolder = PurchaseComponent.initAndGet(dependencies)
                 }
             }
@@ -25,7 +22,6 @@ object PurchaseComponentHolder : ComponentHolder<PurchaseFeatureApi, PurchaseFea
     }
 
     override fun reset() {
-        Log.i("PurchaseCH", "reset()")
         purchaseComponentHolder = null
     }
 

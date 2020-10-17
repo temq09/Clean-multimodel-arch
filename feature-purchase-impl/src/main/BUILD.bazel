@@ -5,14 +5,16 @@ dagger_rules()
 load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_library")
 
 kt_jvm_library(
-    name = "core-network",
+    name = "feature-purchase-impl",
     srcs = glob([
         "**/*.kt",
         "**/*.java",
     ]),
-    visibility = ["//visibility:public"],
     deps = [
         ":dagger",
+        "//core-network/src/main:core-network",
+        "//core-utils/src/main:core-utils",
+        "//feature-purchase-api/src/main:feature-purchase-api",
         "//module-injector/src/main:module_injector",
         "@maven//:io_reactivex_rxjava2_rxjava",
     ],

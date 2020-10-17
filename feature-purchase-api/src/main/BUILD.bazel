@@ -6,6 +6,7 @@ kt_jvm_library(
         "**/*.kt",
         "**/*.java",
     ]),
+    visibility = ["//visibility:public"],
     deps = [
         "//module-injector/src/main:module_injector",
         "@maven//:io_reactivex_rxjava2_rxjava",
