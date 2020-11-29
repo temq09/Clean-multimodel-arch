@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">scanner</string>
 
-    <string name="scanner_screen_name">Scanner screen</string>\
+    <string name="scanner_screen_name">Scanner screen</string>
     <string name="scanner_screen_do_scannerjob_button">Start antivirus scanning</string>
     <string name="scanner_screen_do_scanner_name">Some Antivirus scanning job is doing</string>
     <string name="scanner_screen_do_scanner_completed_name">Some Antivirus scanning job is completed</string>

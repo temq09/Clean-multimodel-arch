@@ -1,0 +1,55 @@
+load("@dagger//:workspace_defs.bzl", "dagger_rules")
+
+dagger_rules()
+
+load("@rules_java//java:defs.bzl", "java_plugin")
+
+java_plugin(
+    name = "moxy_compiler",
+    processor_class = "moxy.compiler.MvpCompiler",
+    deps = [
+        "@maven//:com_github_moxy_community_moxy_compiler",
+    ],
+)
+
+#java_plugin(
+#    name = "lifecycle_compiler",
+#    processor_class = "moxy.compiler.MvpCompiler",
+#    deps = [
+#        "@maven//:androidx_lifecycle_lifecycle_compiler",
+#    ],
+#)
+
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_android_library")
+
+kt_android_library(
+    name = "feature-scanner",
+    srcs = glob([
+        "java/**/*.kt",
+    ]),
+    custom_package = "com.example.scanner_api",
+    manifest = "AndroidManifest.xml",
+    resource_files = glob(["res/**"]),
+    visibility = ["//visibility:public"],
+    deps = [
+        ":dagger",
+        ":moxy_compiler",
+        "//core-db/src/main:core-db",
+        "//core-network/src/main:core-network",
+        "//core-utils/src/main:core-utils",
+        "//feature-purchase-api/src/main:feature-purchase-api",
+        "//module-injector/src/main:module_injector",
+        "@maven//:androidx_activity_activity",
+        "@maven//:androidx_appcompat_appcompat",
+        "@maven//:androidx_core_core",
+        "@maven//:androidx_fragment_fragment",
+        "@maven//:androidx_lifecycle_lifecycle_common",
+        "@maven//:androidx_lifecycle_lifecycle_viewmodel",
+        "@maven//:androidx_savedstate_savedstate",
+        "@maven//:com_github_moxy_community_moxy",
+        "@maven//:com_github_moxy_community_moxy_androidx",
+        "@maven//:io_reactivex_rxjava2_rxandroid",
+        "@maven//:io_reactivex_rxjava2_rxjava",
+        "@maven//:ru_terrakok_cicerone_cicerone",
+    ],
+)

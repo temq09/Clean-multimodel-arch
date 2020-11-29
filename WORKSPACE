@@ -1,6 +1,7 @@
 android_sdk_repository(
     name = "androidsdk",
-    api_level = 25,
+    api_level = 30,
+    build_tools_version = "29.0.2",
 )
 
 # BEGIN maven section
@@ -23,9 +24,9 @@ load("@rules_jvm_external//:defs.bzl", "maven_install")
 # BEGIN Kotlin section
 #load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-rules_kotlin_version = "legacy-1.4.0-rc3"
+rules_kotlin_version = "legacy-1.4.0-rc4"
 
-rules_kotlin_sha = "da0e6e1543fcc79e93d4d93c3333378f3bd5d29e82c1bc2518de0dbe048e6598"
+rules_kotlin_sha = "9cc0e4031bcb7e8508fd9569a81e7042bbf380604a0157f796d06d511cff2769"
 
 http_archive(
     name = "io_bazel_rules_kotlin",
@@ -60,11 +61,24 @@ load("@dagger//:workspace_defs.bzl", "DAGGER_ARTIFACTS", "DAGGER_REPOSITORIES")
 
 maven_install(
     artifacts = DAGGER_ARTIFACTS + [
+        "io.reactivex.rxjava2:rxandroid:2.1.1",
         "io.reactivex.rxjava2:rxjava:2.2.20",
+        "ru.terrakok.cicerone:cicerone:5.1.1",
+        "androidx.annotation:annotation:1.1.0",
+        "androidx.appcompat:appcompat:1.0.2",
+        "androidx.constraintlayout:constraintlayout:2.0.4",
+        "androidx.core:core-ktx:1.0.2",
+        "androidx.fragment:fragment:1.2.5",
+        "androidx.fragment:fragment-ktx:1.2.5",
+        "com.github.moxy-community:moxy:2.1.2",
+        "com.github.moxy-community:moxy-androidx:2.1.2",
+        "com.github.moxy-community:moxy-compiler:2.1.2",
+        "androidx.savedstate:savedstate:1.0.0",
+        "javax.inject:javax.inject:1",
     ],
     repositories = DAGGER_REPOSITORIES + [
-        "https://jcenter.bintray.com/",
         "https://maven.google.com",
+        "https://jcenter.bintray.com/",
         "https://repo1.maven.org/maven2",
     ],
 )

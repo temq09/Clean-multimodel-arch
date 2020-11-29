@@ -1,0 +1,63 @@
+load("@dagger//:workspace_defs.bzl", "dagger_rules")
+
+dagger_rules()
+
+load("@rules_java//java:defs.bzl", "java_plugin")
+
+java_plugin(
+    name = "moxy_compiler",
+    processor_class = "moxy.compiler.MvpCompiler",
+    deps = [
+        "@maven//:com_github_moxy_community_moxy_compiler",
+    ],
+)
+
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_android_library")
+
+android_binary(
+    name = "app",
+    manifest = "AndroidManifest.xml",
+    manifest_values = {
+        "versionCode": "1",
+        "versionName": "1.0",
+        "minSdkVersion": "24",
+        "targetSdkVersion": "29",
+    },
+    deps = [
+        ":app-main",
+    ],
+)
+
+kt_android_library(
+    name = "app-main",
+    srcs = glob(["java/**/*.kt"]),
+    custom_package = "com.example.eugene_matsyuk.dagger_arch",
+    manifest = "AndroidManifest.xml",
+    resource_files = glob(["res/**"]),
+    deps = [
+        ":dagger",
+        ":moxy_compiler",
+        "//core-db/src/main:core-db",
+        "//core-network/src/main:core-network",
+        "//core-utils/src/main:core-utils",
+        "//feature-antitheft/src/main:feature-antitheft",
+        "//feature-purchase-api/src/main:feature-purchase-api",
+        "//feature-purchase-impl/src/main:feature-purchase-impl",
+        "//feature-scanner/src/main:feature-scanner",
+        "//module-injector/src/main:module_injector",
+        "@maven//:androidx_activity_activity",
+        "@maven//:androidx_appcompat_appcompat",
+        "@maven//:androidx_constraintlayout_constraintlayout",
+        "@maven//:androidx_core_core",
+        "@maven//:androidx_fragment_fragment",
+        "@maven//:androidx_lifecycle_lifecycle_common",
+        "@maven//:androidx_lifecycle_lifecycle_viewmodel",
+        "@maven//:androidx_savedstate_savedstate",
+        "@maven//:com_github_moxy_community_moxy",
+        "@maven//:com_github_moxy_community_moxy_androidx",
+        "@maven//:io_reactivex_rxjava2_rxandroid",
+        "@maven//:io_reactivex_rxjava2_rxjava",
+        "@maven//:javax_inject_javax_inject",
+        "@maven//:ru_terrakok_cicerone_cicerone",
+    ],
+)
