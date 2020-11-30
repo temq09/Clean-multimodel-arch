@@ -1,3 +1,0 @@
-import com.temq.dev.GradleInterop
-
-GradleInterop.addBazelInterop(project, "feature-antitheft")

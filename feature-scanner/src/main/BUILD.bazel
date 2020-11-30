@@ -1,25 +1,3 @@
-load("@dagger//:workspace_defs.bzl", "dagger_rules")
-
-dagger_rules()
-
-load("@rules_java//java:defs.bzl", "java_plugin")
-
-java_plugin(
-    name = "moxy_compiler",
-    processor_class = "moxy.compiler.MvpCompiler",
-    deps = [
-        "@maven//:com_github_moxy_community_moxy_compiler",
-    ],
-)
-
-#java_plugin(
-#    name = "lifecycle_compiler",
-#    processor_class = "moxy.compiler.MvpCompiler",
-#    deps = [
-#        "@maven//:androidx_lifecycle_lifecycle_compiler",
-#    ],
-#)
-
 load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_android_library")
 
 kt_android_library(
@@ -32,8 +10,8 @@ kt_android_library(
     resource_files = glob(["res/**"]),
     visibility = ["//visibility:public"],
     deps = [
-        ":dagger",
-        ":moxy_compiler",
+        "//:dagger",
+        "//:moxy_compiler",
         "//core-db/src/main:core-db",
         "//core-network/src/main:core-network",
         "//core-utils/src/main:core-utils",
