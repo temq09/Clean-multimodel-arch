@@ -7,7 +7,7 @@ kt_jvm_library(
     ]),
     visibility = ["//visibility:public"],
     deps = [
-        "//:dagger",
+        "//deps:dagger",
         "//module-injector/src/main:module_injector",
         "@maven//:io_reactivex_rxjava2_rxjava",
     ],

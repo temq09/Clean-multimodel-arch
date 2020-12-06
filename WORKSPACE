@@ -75,10 +75,15 @@ maven_install(
         "com.github.moxy-community:moxy-compiler:2.1.2",
         "androidx.savedstate:savedstate:1.0.0",
         "javax.inject:javax.inject:1",
+        "androidx.core:core:1.3.2",
+        "androidx.activity:activity:1.1.0",
+        "androidx.lifecycle:lifecycle-viewmodel:2.2.0",
+        "androidx.lifecycle:lifecycle-common:2.2.0",
     ],
     repositories = DAGGER_REPOSITORIES + [
         "https://maven.google.com",
         "https://jcenter.bintray.com/",
         "https://repo1.maven.org/maven2",
     ],
+    strict_visibility = True,
 )

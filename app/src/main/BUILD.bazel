@@ -21,11 +21,11 @@ kt_android_library(
     manifest = "AndroidManifest.xml",
     resource_files = glob(["res/**"]),
     deps = [
-        "//:dagger",
-        "//:moxy_compiler",
         "//core-db/src/main:core-db",
         "//core-network/src/main:core-network",
         "//core-utils/src/main:core-utils",
+        "//deps:dagger",
+        "//deps:moxy_compiler",
         "//feature-antitheft/src/main:feature-antitheft",
         "//feature-purchase-api/src/main:feature-purchase-api",
         "//feature-purchase-impl/src/main:feature-purchase-impl",

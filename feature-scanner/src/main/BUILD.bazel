@@ -10,11 +10,11 @@ kt_android_library(
     resource_files = glob(["res/**"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//:dagger",
-        "//:moxy_compiler",
         "//core-db/src/main:core-db",
         "//core-network/src/main:core-network",
         "//core-utils/src/main:core-utils",
+        "//deps:dagger",
+        "//deps:moxy_compiler",
         "//feature-purchase-api/src/main:feature-purchase-api",
         "//module-injector/src/main:module_injector",
         "@maven//:androidx_activity_activity",
