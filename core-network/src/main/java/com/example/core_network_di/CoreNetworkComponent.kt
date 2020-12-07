@@ -1,6 +1,5 @@
-package com.example.core_network_impl.di
+package com.example.core_network_di
 
-import com.example.core_network_api.di.CoreNetworkApi
 import dagger.Component
 import javax.inject.Singleton
 

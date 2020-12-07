@@ -2,7 +2,7 @@ package com.example.scanner_impl.data
 
 import com.example.core.di.general.PerFeature
 import com.example.core.utils.SomeUtils
-import com.example.core_db_api.data.DbClient
+import com.example.core_db_api.DbClient
 import com.example.core_network_api.data.HttpClient
 import com.example.scanner_impl.domain.ScannerRepository
 import com.example.scanner_impl.domain.models.ScannerModel

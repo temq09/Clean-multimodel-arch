@@ -5,10 +5,10 @@ import com.example.antitheft_impl.di.AntitheftFeatureComponentHolder
 import com.example.antitheft_impl.di.AntitheftFeatureDependencies
 import com.example.core.di.app.CoreUtilsComponent
 import com.example.core.utils.SomeUtils
-import com.example.core_db_api.data.DbClient
-import com.example.core_db_impl.di.CoreDbComponent
+import com.example.core_db_api.DbClient
+import com.example.core_db_di.CoreDbComponent
 import com.example.core_network_api.data.HttpClient
-import com.example.core_network_impl.di.CoreNetworkComponent
+import com.example.core_network_di.CoreNetworkComponent
 import com.example.eugene_matsyuk.dagger_arch.DaggerArchApplication
 import com.example.antitheft_api.AntitheftFeatureApi
 import com.example.scanner_api.ScannerFeatureApi

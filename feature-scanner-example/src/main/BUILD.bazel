@@ -21,8 +21,8 @@ kt_android_library(
     manifest = "AndroidManifest.xml",
     resource_files = glob(["res/**"]),
     deps = [
-        "//core-db/src/main:core-db",
-        "//core-network/src/main:core-network",
+        "//core-db/src/main/java/com/example/core_db_api:core-db-api",
+        "//core-network/src/main/java/com/example/core_network_api:core-network-api",
         "//core-utils/src/main:core-utils",
         "//deps:dagger",
         "//deps:moxy_compiler",

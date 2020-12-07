@@ -1,6 +1,5 @@
-package com.example.core_db_impl.di
+package com.example.core_db_di
 
-import com.example.core_db_api.di.CoreDbApi
 import dagger.Component
 import javax.inject.Singleton
 

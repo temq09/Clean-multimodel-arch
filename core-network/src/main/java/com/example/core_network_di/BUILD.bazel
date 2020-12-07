@@ -1,18 +1,22 @@
 load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_library")
 
 kt_jvm_library(
-    name = "feature-purchase-impl",
+    name = "core-network-di",
     srcs = glob([
         "**/*.kt",
-        "**/*.java",
     ]),
     visibility = ["//visibility:public"],
     deps = [
         "//core-network/src/main/java/com/example/core_network_api:core-network-api",
-        "//core-utils/src/main:core-utils",
+        "//core-network/src/main/java/com/example/core_network_impl:core-network-impl",
         "//deps:dagger",
-        "//feature-purchase-api/src/main:feature-purchase-api",
         "//module-injector/src/main:module_injector",
-        "@maven//:io_reactivex_rxjava2_rxjava",
+    ],
+)
+
+package_group(
+    name = "network-di",
+    packages = [
+        "//core-network/src/main/java/com/example/core_network_di",
     ],
 )

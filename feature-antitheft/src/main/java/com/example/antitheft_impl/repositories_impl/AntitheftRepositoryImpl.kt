@@ -3,7 +3,7 @@ package com.example.antitheft_impl.repositories_impl
 import com.example.antitheft_impl.domain.AntitheftRepository
 import com.example.antitheft_impl.domain.models.AntitheftModel
 import com.example.core.di.general.PerFeature
-import com.example.core_db_api.data.DbClient
+import com.example.core_db_api.DbClient
 import com.example.core_network_api.data.HttpClient
 import io.reactivex.Single
 import javax.inject.Inject
