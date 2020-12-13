@@ -1,0 +1,11 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_android_library")
+
+kt_android_library(
+    name = "feature-antitheft-api",
+    srcs = glob(["**/*.kt"]),
+    visibility = ["//visibility:public"],
+    deps = [
+        "//module-injector/src/main:module_injector",
+        "@maven//:io_reactivex_rxjava2_rxjava",
+    ],
+)

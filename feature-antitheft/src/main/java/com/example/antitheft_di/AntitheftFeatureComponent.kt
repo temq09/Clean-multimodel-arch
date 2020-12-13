@@ -1,4 +1,4 @@
-package com.example.antitheft_impl.di
+package com.example.antitheft_di
 
 import com.example.antitheft_impl.presentation.view.AntitheftActivity
 import com.example.antitheft_impl.presentation.view.AntitheftMainFragment

@@ -1,4 +1,4 @@
-package com.example.antitheft_impl.di
+package com.example.antitheft_di
 
 import com.example.core.di.general.PerFeature
 import dagger.Module

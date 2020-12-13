@@ -1,0 +1,26 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_android_library")
+
+kt_android_library(
+    name = "feature-antitheft-presentation",
+    srcs = glob(["**/*.kt"]),
+    visibility = ["//visibility:public"],
+    deps = [
+        "//deps:dagger",
+        "//deps:moxy_compiler",
+        "//feature-antitheft/src/main:feature-antitheft-res",
+        "//feature-antitheft/src/main/java/com/example/antitheft_api:feature-antitheft-api",
+        "//feature-antitheft/src/main/java/com/example/antitheft_impl/domain/api:antitheft_domain_api",
+        "//feature-purchase-api/src/main:feature-purchase-api",
+        "@maven//:androidx_activity_activity",
+        "@maven//:androidx_appcompat_appcompat",
+        "@maven//:androidx_core_core",
+        "@maven//:androidx_fragment_fragment",
+        "@maven//:androidx_lifecycle_lifecycle_common",
+        "@maven//:androidx_lifecycle_lifecycle_viewmodel",
+        "@maven//:androidx_savedstate_savedstate",
+        "@maven//:com_github_moxy_community_moxy",
+        "@maven//:com_github_moxy_community_moxy_androidx",
+        "@maven//:io_reactivex_rxjava2_rxandroid",
+        "@maven//:ru_terrakok_cicerone_cicerone",
+    ],
+)

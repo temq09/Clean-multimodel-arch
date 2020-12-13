@@ -1,0 +1,13 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_library")
+
+kt_jvm_library(
+    name = "antitheft_domain_api",
+    srcs = glob(["**/*.kt"]),
+    visibility = ["//feature-antitheft/src/main/java/com/example/antitheft_di:__pkg__"],
+    deps = [
+        "//core-db/src/main/java/com/example/core_db_api:core-db-api",
+        "//core-network/src/main/java/com/example/core_network_api:core-network-api",
+        "//feature-antitheft/src/main/java/com/example/antitheft_impl/domain/api:antitheft_domain_api",
+        "@maven//:io_reactivex_rxjava2_rxjava",
+    ],
+)

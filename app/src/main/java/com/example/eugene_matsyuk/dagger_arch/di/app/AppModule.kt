@@ -1,8 +1,8 @@
 package com.example.eugene_matsyuk.dagger_arch.di.app
 
 import android.content.Context
-import com.example.antitheft_impl.di.AntitheftFeatureComponentHolder
-import com.example.antitheft_impl.di.AntitheftFeatureDependencies
+import com.example.antitheft_di.AntitheftFeatureComponentHolder
+import com.example.antitheft_di.AntitheftFeatureDependencies
 import com.example.core.di.app.CoreUtilsComponent
 import com.example.core.utils.SomeUtils
 import com.example.core_db_api.DbClient

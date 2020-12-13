@@ -1,21 +1,20 @@
 package com.example.antitheft_impl.presentation.presenter
 
 import android.annotation.SuppressLint
-import com.example.antitheft_impl.domain.AntitheftInteractor
+import com.example.antitheft_impl.domain.api.AntitheftInteractor
 import com.example.antitheft_impl.presentation.view.AntitheftMainView
-import com.example.antitheft_impl.routing.AntitheftRoutingScreens
+import com.example.antitheft_impl.presentation.routing.AntitheftRoutingScreens
 import com.example.purchase_api.domain.PurchaseInteractor
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import moxy.InjectViewState
 import moxy.MvpPresenter
 import ru.terrakok.cicerone.Router
-import javax.inject.Inject
 
 @InjectViewState
-internal class AntitheftPresenter @Inject constructor(private val antitheftInteractor: AntitheftInteractor,
-                                                      private val purchaseInteractor: PurchaseInteractor,
-                                                      private val router: Router) : MvpPresenter<AntitheftMainView>() {
+internal class AntitheftPresenter(private val antitheftInteractor: AntitheftInteractor,
+                                  private val purchaseInteractor: PurchaseInteractor,
+                                  private val router: Router) : MvpPresenter<AntitheftMainView>() {
     @SuppressLint("CheckResult")
     fun clickToAtWork() {
         antitheftInteractor.doAntitheftWork()

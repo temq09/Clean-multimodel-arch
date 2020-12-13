@@ -1,4 +1,4 @@
-package com.example.antitheft_impl.di
+package com.example.antitheft_di
 
 import android.util.Log
 import com.example.antitheft_api.AntitheftFeatureApi

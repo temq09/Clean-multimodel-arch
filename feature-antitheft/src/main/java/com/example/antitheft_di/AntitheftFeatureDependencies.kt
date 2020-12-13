@@ -1,4 +1,4 @@
-package com.example.antitheft_impl.di
+package com.example.antitheft_di
 
 import com.example.core_db_api.DbClient
 import com.example.core_network_api.data.HttpClient

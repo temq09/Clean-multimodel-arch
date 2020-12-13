@@ -2,8 +2,8 @@ package com.example.antitheft_impl.presentation.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.antitheft_impl.di.AntitheftFeatureComponentHolder
-import com.example.antitheft_impl.routing.AntitheftRoutingScreens
+import com.example.antitheft_di.AntitheftFeatureComponentHolder
+import com.example.antitheft_impl.presentation.routing.AntitheftRoutingScreens
 import com.example.antitheft_api.R
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder

@@ -1,0 +1,46 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_android_library", "kt_jvm_library")
+
+kt_android_library(
+    name = "feature-antitheft-di",
+    srcs = glob([
+        "AntitheftFeatureComponentHolder.kt",
+    ]),
+    visibility = ["//visibility:public"],
+    deps = [
+        "feature-antitheft-di-deps",
+        "feature-antitheft-di-internal",
+        "//feature-antitheft/src/main/java/com/example/antitheft_api:feature-antitheft-api",
+        "//module-injector/src/main:module_injector",
+    ],
+)
+
+kt_jvm_library(
+    name = "feature-antitheft-di-deps",
+    srcs = glob(["AntitheftFeatureDependencies.kt"]),
+    visibility = ["//visibility:public"],
+    deps = [
+        "//core-db/src/main/java/com/example/core_db_api:core-db-api",
+        "//core-network/src/main/java/com/example/core_network_api:core-network-api",
+        "//feature-purchase-api/src/main:feature-purchase-api",
+    ],
+)
+
+kt_android_library(
+    name = "feature-antitheft-di-internal",
+    srcs = glob([
+        "AntitheftFeatureComponent.kt",
+        "AntitheftFeatureModule.kt",
+        "AntitheftNavigationModule.kt",
+    ]),
+    visibility = ["//visibility:private"],
+    deps = [
+        "//core-db/src/main/java/com/example/core_db_api:core-db-api",
+        "//core-network/src/main/java/com/example/core_network_api:core-network-api",
+        "//deps:dagger",
+        "//deps:moxy_compiler",
+        "//feature-antitheft/src/main/java/com/example/antitheft_api:feature-antitheft-api",
+        "//feature-antitheft/src/main/java/com/example/antitheft_di:feature-antitheft-di-deps",
+        "//feature-antitheft/src/main/java/com/example/antitheft_impl/presentation:feature-antitheft-presentation",
+        "@maven//:ru_terrakok_cicerone_cicerone",
+    ],
+)

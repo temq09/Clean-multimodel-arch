@@ -1,13 +1,12 @@
-package com.example.antitheft_impl.domain
+package com.example.antitheft_impl.domain.impl
 
-import com.example.antitheft_impl.domain.models.AntitheftModel
-import com.example.core.di.general.PerFeature
+import com.example.antitheft_impl.domain.api.AntitheftInteractor
+import com.example.antitheft_impl.domain.api.AntitheftRepository
+import com.example.antitheft_impl.domain.api.models.AntitheftModel
 import io.reactivex.Single
 import java.util.concurrent.TimeUnit
-import javax.inject.Inject
 
-@PerFeature
-internal class AntitheftInteractorImpl @Inject constructor(private val antitheftRepository: AntitheftRepository) : AntitheftInteractor {
+internal class AntitheftInteractorImpl(private val antitheftRepository: AntitheftRepository) : AntitheftInteractor {
     override fun doAntitheftWork(): Single<AntitheftModel> {
         return antitheftRepository.doAntitheftLowLevelWork()
                 .flatMap { antitheftModel: AntitheftModel -> doSomeLogic(antitheftModel) }

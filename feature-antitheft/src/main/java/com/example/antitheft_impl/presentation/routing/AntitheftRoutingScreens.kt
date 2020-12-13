@@ -1,4 +1,4 @@
-package com.example.antitheft_impl.routing
+package com.example.antitheft_impl.presentation.routing
 
 import com.example.antitheft_impl.presentation.view.AntitheftHelpFragment
 import com.example.antitheft_impl.presentation.view.AntitheftMainFragment
