@@ -13,7 +13,7 @@ object AntitheftFeatureComponentHolder : ComponentHolder<AntitheftFeatureApi, An
             synchronized(AntitheftFeatureComponentHolder::class.java) {
                 if (antitheftFeatureComponent == null) {
                     Log.i("AntitheftFeatureCH", "initAndGet()")
-                    antitheftFeatureComponent = AntitheftFeatureComponent.initAndGet(dependencies)
+                    antitheftFeatureComponent = initAndGet(dependencies)
                 }
             }
         }
@@ -29,6 +29,13 @@ object AntitheftFeatureComponentHolder : ComponentHolder<AntitheftFeatureApi, An
     override fun reset() {
         Log.i("AntitheftFeatureCH", "reset()")
         antitheftFeatureComponent = null
+    }
+
+    private fun initAndGet(antitheftFeatureDependencies: AntitheftFeatureDependencies): AntitheftFeatureComponent {
+        return DaggerAntitheftFeatureComponent.builder()
+                .antitheftFeatureDependencies(antitheftFeatureDependencies)
+                .build()
+
     }
 
 }

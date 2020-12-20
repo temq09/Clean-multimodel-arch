@@ -8,7 +8,6 @@ kt_android_library(
     visibility = ["//visibility:public"],
     deps = [
         "feature-antitheft-di-deps",
-        "feature-antitheft-di-internal",
         "//feature-antitheft/src/main/java/com/example/antitheft_api:feature-antitheft-api",
         "//module-injector/src/main:module_injector",
     ],
